@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final autoDisposeHelloProvider = Provider.autoDispose<String>((ref) {
-  print('autoDisposeHelloProvider created');
+  print('[autoDisposeHelloProvider] created');
   ref.onDispose(() {
-    print('autoDisposeHelloProvider disposed');
+    print('[autoDisposeHelloProvider] disposed');
   });
-  return 'Hello, AutoDisposeProvider!';
+  return 'Hello';
 });

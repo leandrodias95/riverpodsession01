@@ -11,18 +11,20 @@ class BasicPage extends ConsumerStatefulWidget {
 }
 
 class _BasicPageState extends ConsumerState<BasicPage> {
-@override
+  @override
   Widget build(BuildContext context) {
+    final hello = ref.watch(helloProvider);
+    final world = ref.watch(worldProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Provider'),
       ),
       body: Center(
-        child: Consumer(builder: (context, ref, child) {
-          final hello = ref.watch(helloProvider);
-          final world =  ref.watch(worldProvider);
-          return Text('$hello $world', style: Theme.of(context).textTheme.headlineLarge,);
-        }),
+        child: Text(
+          '$hello $world',
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
       ),
     );
   }
